@@ -47,9 +47,12 @@ public class PlayerController : MonoBehaviour {
    private void Die() {
         // 사망 처리
         animator.SetTrigger("Die");
+        playerAudio.clip = deathClip;
         playerAudio.Play();
         playerRigidbody.velocity = Vector2.zero;
         isDead = true;
+
+        GameManager.instance.OnPlayerDead();
 
    }
 
